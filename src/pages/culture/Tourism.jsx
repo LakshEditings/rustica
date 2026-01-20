@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MapPin, Plus, X } from 'lucide-react';
 import styles from '../../components/Layout.module.css'; // Reusing generic layout styles
+import Card from '../../components/Card';
 
 const Tourism = () => {
     const [locationSelected, setLocationSelected] = useState(false);
@@ -40,23 +41,26 @@ const Tourism = () => {
     }
 
     return (
-        <div className="container mx-auto p-4 animate-fade-in">
+        <div className="max-w-7xl mx-auto p-6 animate-fade-in">
             <h2 className="text-3xl font-bold text-orange-600 mb-6 border-b-2 border-orange-100 pb-2">Tourist Hotspots</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {spots.map(spot => (
-                    <div key={spot.id} className="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all">
-                        <div className="h-48 overflow-hidden">
-                            <img src={spot.img} alt={spot.name} className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-                        </div>
-                        <div className="p-4">
-                            <h3 className="text-xl font-bold text-gray-800">{spot.name}</h3>
-                            <div className="flex items-center gap-1 text-gray-500 mt-1">
-                                <MapPin size={16} />
-                                <span className="text-sm">{spot.location}</span>
+                    <Card key={spot.id} className="p-0 overflow-hidden h-full group">
+                        <div className="h-48 overflow-hidden relative">
+                            <img src={spot.img} alt={spot.name} className="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-in-out" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <span className="text-white font-medium">View Details</span>
                             </div>
                         </div>
-                    </div>
+                        <div className="p-5">
+                            <h3 className="text-xl font-bold text-[var(--pine-teal)]">{spot.name}</h3>
+                            <div className="flex items-center gap-2 text-gray-500 mt-2">
+                                <MapPin size={16} className="text-orange-500" />
+                                <span className="text-sm font-medium">{spot.location}</span>
+                            </div>
+                        </div>
+                    </Card>
                 ))}
             </div>
 
@@ -70,8 +74,8 @@ const Tourism = () => {
 
             {/* Add Hotspot Modal */}
             {showAddModal && (
-                <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
-                    <div className="bg-white rounded-2xl w-full max-w-lg p-6 relative animate-slide-up">
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+                    <div className="bg-white/95 backdrop-blur-xl border border-white/50 rounded-3xl w-full max-w-lg p-8 relative animate-slide-up shadow-2xl">
                         <button onClick={() => setShowAddModal(false)} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
                             <X size={24} />
                         </button>

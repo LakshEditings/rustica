@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Search, Star, Phone, Plus, X } from 'lucide-react';
+import { Search, Star, Phone, Plus, X, MapPin } from 'lucide-react';
+import Card from '../../components/Card';
 
 const JobBoard = () => {
     const [showModal, setShowModal] = useState(false);
@@ -12,36 +13,36 @@ const JobBoard = () => {
     ];
 
     return (
-        <div className="container mx-auto p-4 animate-fade-in">
-            <div className="bg-green-600 p-8 rounded-2xl mb-8 text-white text-center">
-                <h2 className="text-3xl font-bold mb-4">Find Local Professionals</h2>
-                <div className="relative max-w-xl mx-auto">
+        <div className="max-w-7xl mx-auto p-6 animate-fade-in">
+            <div className="bg-gradient-to-r from-green-600 to-emerald-600 p-10 rounded-3xl mb-10 text-white text-center shadow-lg">
+                <h2 className="text-4xl font-extrabold mb-6 tracking-tight">Find Local Professionals</h2>
+                <div className="relative max-w-2xl mx-auto">
                     <input
                         type="text"
                         placeholder="Search for Plumber, Carpenter, etc."
-                        className="w-full p-4 pl-12 rounded-full text-gray-800 outline-none shadow-lg"
+                        className="w-full p-4 pl-12 rounded-full text-gray-800 outline-none shadow-2xl border-4 border-white/20 focus:border-white/50 transition-colors"
                     />
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
                 </div>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {workers.map(worker => (
-                    <div key={worker.id} className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition border border-green-50">
+                    <Card key={worker.id} className="hover:border-green-200">
                         <div className="flex justify-between items-start mb-4">
                             <div>
-                                <h3 className="font-bold text-lg text-gray-800">{worker.name}</h3>
-                                <p className="text-green-600 font-medium bg-green-50 px-2 py-1 rounded inline-block text-sm">{worker.role}</p>
+                                <h3 className="font-bold text-xl text-gray-800">{worker.name}</h3>
+                                <p className="text-green-700 font-semibold bg-green-50 px-3 py-1 rounded-lg inline-block text-sm mt-1">{worker.role}</p>
                             </div>
-                            <div className="flex items-center gap-1 bg-yellow-400 text-white px-2 py-1 rounded font-bold text-xs">
-                                {worker.rating} <Star size={12} fill="currentColor" />
+                            <div className="flex items-center gap-1 bg-yellow-400 text-white px-2 py-1 rounded-lg font-bold text-sm shadow-sm">
+                                {worker.rating} <Star size={14} fill="currentColor" />
                             </div>
                         </div>
-                        <p className="text-gray-500 text-sm mb-4">{worker.location}</p>
-                        <button className="w-full bg-green-600 text-white py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-green-700">
-                            <Phone size={18} /> Call Now
+                        <p className="text-gray-500 mb-6 flex items-center gap-2"><MapPin size={16} /> {worker.location}</p>
+                        <button className="w-full bg-green-600 text-white py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-green-700 shadow-md transition font-semibold">
+                            <Phone size={20} /> Call Now
                         </button>
-                    </div>
+                    </Card>
                 ))}
             </div>
 

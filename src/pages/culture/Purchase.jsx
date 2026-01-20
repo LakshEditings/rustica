@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ShoppingBag, Plus, X, Search, MapPin } from 'lucide-react';
+import Card from '../../components/Card';
 
 const Purchase = () => {
     const [locationSelected, setLocationSelected] = useState(false);
@@ -30,7 +31,7 @@ const Purchase = () => {
     }
 
     return (
-        <div className="container mx-auto p-4 animate-fade-in">
+        <div className="max-w-7xl mx-auto p-6 animate-fade-in">
             {/* Search Bar */}
             <div className="relative mb-8">
                 <input
@@ -41,14 +42,14 @@ const Purchase = () => {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {products.map(p => (
-                    <div key={p.id} className="bg-white rounded-xl shadow p-4 hover:shadow-lg transition">
-                        <img src={p.img} alt={p.name} className="w-full h-32 object-cover rounded-lg mb-4" />
-                        <h3 className="font-bold text-gray-800">{p.name}</h3>
-                        <p className="text-orange-600 font-bold text-lg">{p.price}</p>
-                        <button className="w-full mt-2 bg-orange-500 text-white py-1 rounded-lg text-sm hover:bg-orange-600">Buy Now</button>
-                    </div>
+                    <Card key={p.id} className="p-4 hover:shadow-xl border-orange-50">
+                        <img src={p.img} alt={p.name} className="w-full h-40 object-cover rounded-xl mb-4" />
+                        <h3 className="font-bold text-gray-800 text-lg">{p.name}</h3>
+                        <p className="text-orange-600 font-bold text-xl mt-1">{p.price}</p>
+                        <button className="w-full mt-4 bg-orange-500 text-white py-2 rounded-xl font-semibold shadow-md hover:bg-orange-600 transition">Buy Now</button>
+                    </Card>
                 ))}
             </div>
 

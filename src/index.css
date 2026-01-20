@@ -1,30 +1,59 @@
-:root {
-  /* Main Green Theme */
-  --frosted-mint: #d8f3dcff;
-  --celadon: #b7e4c7ff;
-  --celadon-2: #95d5b2ff;
-  --mint-leaf: #74c69dff;
-  --mint-leaf-2: #52b788ff;
-  --sea-green: #40916cff;
-  --dark-emerald: #2d6a4fff;
-  --pine-teal: #1b4332ff;
-  --evergreen: #081c15ff;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 
-  /* Feature Colors */
-  --orange-header: #fb8500;
-  --yellow-header: #ffb703;
-  --blue-header: #219ebc;
-  --purple-header: #8338ec;
-  --red-header: #ef233c;
-  --green-header: #38b000;
+:root {
+  /* Premium Palette - Green Foundation */
+  --frosted-mint: #d8f3dc;
+  --celadon: #b7e4c7;
+  --celadon-2: #95d5b2;
+  --mint-leaf: #74c69d;
+  --mint-leaf-2: #52b788;
+  --sea-green: #40916c;
+  --dark-emerald: #2d6a4f;
+  --pine-teal: #1b4332;
+  --evergreen: #081c15;
+
+  /* Enhanced Feature Colors (Vibrant & Professional) */
+  --orange-header: #FF8800;
+  --orange-bg: #FFF3E0;
+  --orange-border: #FFCC80;
+
+  --yellow-header: #FFB300;
+  --yellow-bg: #FFF8E1;
+  --yellow-border: #FFE082;
+
+  --blue-header: #00897B;
+  /* Teal-ish blue for better contrast */
+  --blue-bg: #E0F2F1;
+  --blue-border: #80CBC4;
+
+  --purple-header: #7E57C2;
+  --purple-bg: #EDE7F6;
+  --purple-border: #D1C4E9;
+
+  --red-header: #E53935;
+  --red-bg: #FFEBEE;
+  --red-border: #EF9A9A;
+
+  --green-header: #43A047;
+  --green-bg: #E8F5E9;
+  --green-border: #A5D6A7;
+
+  /* UI Tokens */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+  --card-hover-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
 }
 
 body {
   margin: 0;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  /* More modern font stack */
   -webkit-font-smoothing: antialiased;
   background-color: white;
-  /* As requested */
+  /* Reverted to white as requested */
+  color: var(--evergreen);
+  min-height: 100vh;
 }
 
 * {
@@ -34,4 +63,39 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mint-leaf);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sea-green);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
 }

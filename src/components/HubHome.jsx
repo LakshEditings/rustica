@@ -1,29 +1,30 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Card from './Card';
 
 // Reusable component for Hub Landing pages
 const HubHome = ({ title, subtitle, cards, color }) => {
     const navigate = useNavigate();
 
     return (
-        <div className="animate-fade-in p-6">
-            <div className="text-center mb-10">
-                <h2 className="text-3xl font-bold mb-2" style={{ color: color }}>{title}</h2>
-                <p className="text-gray-500">{subtitle}</p>
+        <div className="animate-fade-in p-6 max-w-7xl mx-auto">
+            <div className="text-center mb-12 mt-4">
+                <h2 className="text-4xl font-extrabold mb-3 tracking-tight" style={{ color: color }}>{title}</h2>
+                <p className="text-lg text-gray-500 max-w-2xl mx-auto">{subtitle}</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {cards.map((card, index) => (
-                    <div
+                    <Card
                         key={index}
-                        className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all cursor-pointer border-t-4"
-                        style={{ borderColor: color }}
+                        title={card.title}
+                        icon={card.icon}
+                        accentColor={color}
                         onClick={() => card.path && navigate(card.path)}
+                        className="h-full"
                     >
-                        <div className="mb-4 text-gray-700">{card.icon}</div>
-                        <h3 className="text-xl font-bold mb-2 text-gray-800">{card.title}</h3>
-                        {card.element && <div className="mt-2">{card.element}</div>}
-                    </div>
+                        {card.element}
+                    </Card>
                 ))}
             </div>
         </div>

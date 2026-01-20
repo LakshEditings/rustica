@@ -1,15 +1,49 @@
 import React from 'react';
 
-const Card = ({ title, children, className = "", icon: Icon }) => {
+const Card = ({ title, children, className = "", icon: Icon, onClick, style, accentColor }) => {
+    const iconStyle = accentColor ? { color: accentColor, backgroundColor: `${accentColor}15` } : {};
+    const titleStyle = accentColor ? { color: accentColor } : {};
+
     return (
-        <div className={`bg-white/80 backdrop-blur-sm border border-[var(--celadon)] rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 p-6 ${className}`}>
-            {title && (
-                <div className="flex items-center gap-3 mb-4">
-                    {Icon && <div className="p-2 bg-[var(--celadon)] rounded-lg text-[var(--pine-teal)]"><Icon size={24} /></div>}
-                    <h3 className="text-xl font-bold text-[var(--pine-teal)]">{title}</h3>
+        <div
+            className={`
+                relative overflow-hidden
+                bg-white
+                rounded-xl
+                p-6
+                transition-all duration-300 ease-out
+                border border-gray-100
+                shadow-sm
+                hover:shadow-lg
+                hover:-translate-y-1
+                cursor-pointer
+                group
+                ${className}
+            `}
+            onClick={onClick}
+            style={style}
+        >
+            {(title || Icon) && (
+                <div className="flex items-center gap-4 mb-4 relative z-10">
+                    {Icon && (
+                        <div
+                            className="p-3 bg-gray-50 rounded-lg text-[var(--pine-teal)] group-hover:scale-105 transition-transform duration-300"
+                            style={iconStyle}
+                        >
+                            {React.isValidElement(Icon) ? Icon : <Icon size={24} />}
+                        </div>
+                    )}
+                    {title && (
+                        <h3
+                            className="text-lg font-bold text-[var(--pine-teal)] tracking-tight"
+                            style={titleStyle}
+                        >
+                            {title}
+                        </h3>
+                    )}
                 </div>
             )}
-            <div className="text-[var(--evergreen)]">
+            <div className="text-gray-600 relative z-10 font-medium leading-relaxed">
                 {children}
             </div>
         </div>
