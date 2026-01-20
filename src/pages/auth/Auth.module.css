@@ -1,0 +1,95 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--frosted-mint), var(--celadon));
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--pine-teal);
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.title {
+    font-size: 1.5rem;
+    color: var(--evergreen);
+    margin-bottom: 30px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inputGroup {
+    text-align: left;
+}
+
+.inputGroup label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--sea-green);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.inputGroup input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--frosted-mint);
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.inputGroup input:focus {
+    border-color: var(--pine-teal);
+}
+
+.submitBtn {
+    background: var(--pine-teal);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 10px;
+}
+
+.submitBtn:hover {
+    background: var(--dark-emerald);
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.link {
+    background: none;
+    border: none;
+    color: var(--pine-teal);
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+}
