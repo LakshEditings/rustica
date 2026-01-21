@@ -1,27 +1,39 @@
 import React from 'react';
-import { ShieldCheck } from 'lucide-react';
+import { Shield, MapPin } from 'lucide-react';
+import styles from '../../styles/professional.module.css';
 
 const SafeRoute = () => {
     return (
-        <div className="h-[calc(100vh-80px)] w-full relative">
-            {/* Map Mockup Background */}
-            <div className="absolute inset-0 bg-blue-50 opacity-50 bg-[url('https://upload.wikimedia.org/wikipedia/commons/e/ec/Map_of_Adyar_River.png')] bg-cover bg-center grayscale mix-blend-multiply"></div>
+        <div className={styles.pageContainer}>
+            <div className={styles.pageHeader}>
+                <Shield size={48} className={styles.pageIcon} />
+                <h2 className={styles.pageTitle}>Women Safety Routes</h2>
+                <p className={styles.pageSubtitle}>Well-lit and monitored pathways</p>
+            </div>
 
-            <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-                <div className="bg-white/90 backdrop-blur-md p-8 rounded-3xl shadow-2xl text-center max-w-md border-4 border-yellow-400">
-                    <ShieldCheck size={64} className="mx-auto text-green-600 mb-4" />
-                    <h2 className="text-2xl font-bold mb-2 text-gray-800">Safe Route Active</h2>
-                    <p className="text-gray-600 mb-6">Highlighting the safest, well-lit roads with police patrol density.</p>
-                    <div className="bg-green-100 text-green-800 px-4 py-2 rounded-lg font-bold">
-                        🟢 You are in a safe zone
-                    </div>
+            <div className={styles.card} style={{ padding: '32px', textAlign: 'center', background: 'linear-gradient(135deg, rgba(184, 233, 210, 0.1) 0%, rgba(116, 198, 157, 0.1) 100%)', border: '2px dashed var(--celadon)' }}>
+                <MapPin size={64} style={{ margin: '0 auto 16px', color: 'var(--celadon)' }} />
+                <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#1f2937', marginBottom: '8px' }}>Interactive Map</h3>
+                <p style={{ color: '#6b7280', marginBottom: '24px' }}>Map integration showing safe, well-lit routes across the village with emergency contact points.</p>
+                <div style={{ backgroundColor: '#f3f4f6', padding: '80px', borderRadius: '16px', color: '#9ca3af', fontWeight: 500 }}>
+                    [Map View Placeholder]
                 </div>
             </div>
 
-            {/* Simulated Route Line (CSS) */}
-            <svg className="absolute inset-0 pointer-events-none w-full h-full">
-                <path d="M100,600 Q400,300 800,400 T1200,200" fill="none" stroke="#22c55e" strokeWidth="8" strokeDasharray="20,10" className="animate-pulse opacity-60" />
-            </svg>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginTop: '32px' }}>
+                <div className={styles.card} style={{ textAlign: 'center', padding: '20px' }}>
+                    <div style={{ fontSize: '32px', fontWeight: 800, color: 'var(--sea-green)', marginBottom: '8px' }}>12</div>
+                    <p style={{ color: '#6b7280', fontSize: '14px', fontWeight: 600 }}>Safe Routes</p>
+                </div>
+                <div className={styles.card} style={{ textAlign: 'center', padding: '20px' }}>
+                    <div style={{ fontSize: '32px', fontWeight: 800, color: 'var(--sea-green)', marginBottom: '8px' }}>8</div>
+                    <p style={{ color: '#6b7280', fontSize: '14px', fontWeight: 600 }}>Emergency Points</p>
+                </div>
+                <div className={styles.card} style={{ textAlign: 'center', padding: '20px' }}>
+                    <div style={{ fontSize: '32px', fontWeight: 800, color: 'var(--sea-green)', marginBottom: '8px' }}>24/7</div>
+                    <p style={{ color: '#6b7280', fontSize: '14px', fontWeight: 600 }}>Monitored</p>
+                </div>
+            </div>
         </div>
     );
 };

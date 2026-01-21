@@ -1,0 +1,372 @@
+/* Shared Professional CSS Module for All Hub Pages */
+
+/* Container & Page Base */
+.pageContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.narrowContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Headers */
+.pageHeader {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.pageIcon {
+    margin: 0 auto 16px;
+    color: var(--sea-green);
+}
+
+.pageTitle {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--dark-emerald);
+    margin-bottom: 8px;
+}
+
+.pageSubt title {
+    color: #6b7280;
+    font-size: 16px;
+}
+
+/* Hero Sections */
+.hero {
+    background: linear-gradient(135deg, var(--sea-green) 0%, var(--dark-emerald) 100%);
+    padding: 48px;
+    border-radius: 24px;
+    margin-bottom: 40px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(64, 145, 108, 0.3);
+    color: white;
+}
+
+.heroTitle {
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+/* Cards */
+.card {
+    background-color: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-color: var(--celadon);
+}
+
+.cardWithTopBorder {
+    border-top: 4px solid var(--sea-green);
+}
+
+.gridCards {
+    display: grid;
+    gap: 24px;
+}
+
+.gridCardsTwo {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.gridCardsThree {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Forms */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formRow {
+    display: grid;
+    gap: 20px;
+}
+
+.formRowTwo {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.input,
+.select,
+.textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--celadon);
+    outline: none;
+    font-size: 14px;
+    background-color: #f9fafb;
+    transition: all 0.2s;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+    border-color: var(--sea-green);
+    box-shadow: 0 0 0 3px rgba(64, 145, 108, 0.1);
+    background-color: white;
+}
+
+.textarea {
+    min-height: 120px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.select {
+    cursor: pointer;
+}
+
+/* Search Bars */
+.searchWrapper {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    border-radius: 9999px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    font-size: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s;
+}
+
+.searchInput:focus {
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.searchIcon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    pointer-events: none;
+}
+
+/* Buttons */
+.button {
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.buttonPrimary {
+    background-color: var(--sea-green);
+    color: white;
+    box-shadow: 0 4px 12px rgba(64, 145, 108, 0.3);
+}
+
+.buttonPrimary:hover {
+    background-color: var(--dark-emerald);
+    box-shadow: 0 6px 16px rgba(64, 145, 108, 0.4);
+}
+
+.buttonSecondary {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.buttonSecondary:hover {
+    background-color: #e5e7eb;
+}
+
+.buttonFull {
+    width: 100%;
+}
+
+/* FAB (Floating Action Button) */
+.fab {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    background-color: var(--sea-green);
+    color: white;
+    padding: 16px;
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(64, 145, 108, 0.4);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 40;
+}
+
+.fab:hover {
+    background-color: var(--dark-emerald);
+    box-shadow: 0 12px 32px rgba(64, 145, 108, 0.5);
+    transform: scale(1.1);
+}
+
+/* Modals */
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    padding: 16px;
+}
+
+.modalContent {
+    background-color: white;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 560px;
+    padding: 32px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s ease-out;
+}
+
+.modalClose {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s;
+}
+
+.modalClose:hover {
+    color: #4b5563;
+}
+
+.modalTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-emerald);
+    margin-bottom: 24px;
+}
+
+/* List Items */
+.listItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.listItem:hover {
+    border-color: var(--celadon);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.listItemIcon {
+    padding: 12px;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.listItemContent {
+    flex: 1;
+}
+
+.listItemTitle {
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 4px;
+}
+
+.listItemMeta {
+    font-size: 14px;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.listItemAction {
+    flex-shrink: 0;
+}
+
+/* Empty States */
+.emptyState {
+    text-align: center;
+    padding: 80px 20px;
+    opacity: 0.5;
+}
+
+.emptyIcon {
+    margin: 0 auto 16px;
+    color: #d1d5db;
+}
+
+.emptyText {
+    color: #6b7280;
+    font-weight: 500;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

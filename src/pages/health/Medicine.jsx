@@ -1,39 +1,42 @@
 import React, { useState } from 'react';
 import { Search, MapPin, Pill } from 'lucide-react';
+import styles from '../../styles/professional.module.css';
 
 const Medicine = () => {
     const [query, setQuery] = useState('');
 
     return (
-        <div className="container mx-auto p-4 animate-fade-in">
-            <div className="bg-red-500 p-8 rounded-2xl mb-8 text-white text-center shadow-lg">
-                <h2 className="text-3xl font-bold mb-4">Find Medicines Nearby</h2>
-                <div className="relative max-w-xl mx-auto">
+        <div className={styles.pageContainer}>
+            <div className={styles.hero} style={{ background: 'linear-gradient(135deg, #1b4332 0%, #081c15 100%)' }}>
+                <h2 className={styles.heroTitle}>Find Medicines Nearby</h2>
+                <div className={styles.searchWrapper}>
                     <input
                         type="text"
                         placeholder="Type medicine name (e.g. Paracetamol)"
-                        className="w-full p-4 pl-12 rounded-full text-gray-800 outline-none shadow-lg"
+                        className={styles.searchInput}
+                        style={{ color: '#1f2937' }}
                         onChange={(e) => setQuery(e.target.value)}
                     />
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                    <Search className={styles.searchIcon} />
                 </div>
             </div>
 
-            {/* Mock Results */}
             {query && (
-                <div className="space-y-4">
-                    <h3 className="font-bold text-gray-600">Showing shops for "{query}"</h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <h3 style={{ fontWeight: 700, color: '#6b7280' }}>Showing shops for "{query}"</h3>
                     {[1, 2].map(i => (
-                        <div key={i} className="bg-white p-4 rounded-xl shadow border-l-4 border-green-500 flex justify-between items-center">
+                        <div key={i} className={styles.card} style={{ borderLeft: '4px solid var(--sea-green)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <div>
-                                <h4 className="font-bold text-lg">City Pharmacy</h4>
-                                <p className="text-gray-500 text-sm flex items-center gap-1"><MapPin size={14} /> Main Bazaar (0.5 km)</p>
-                                <div className="mt-2 text-green-600 text-sm font-bold flex items-center gap-1">
+                                <h4 style={{ fontWeight: 700, fontSize: '18px', marginBottom: '6px' }}>City Pharmacy</h4>
+                                <p style={{ color: '#6b7280', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '8px' }}>
+                                    <MapPin size={14} /> Main Bazaar (0.5 km)
+                                </p>
+                                <div style={{ color: 'var(--sea-green)', fontSize: '14px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}>
                                     <Pill size={14} /> In Stock
                                 </div>
                             </div>
-                            <a href="#" className="bg-red-50 rounded-full w-10 h-10 flex items-center justify-center text-red-500 hover:bg-red-100">
-                                <MapPin />
+                            <a href="#" style={{ backgroundColor: 'rgba(27, 67, 50, 0.1)', borderRadius: '50%', width: '48px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--pine-teal)', transition: 'background-color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(27, 67, 50, 0.2)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(27, 67, 50, 0.1)'}>
+                                <MapPin size={20} />
                             </a>
                         </div>
                     ))}
@@ -41,7 +44,10 @@ const Medicine = () => {
             )}
 
             {!query && (
-                <div className="text-center text-gray-400 mt-20">Type a medicine name above to search local inventories.</div>
+                <div className={styles.emptyState}>
+                    <Pill size={64} className={styles.emptyIcon} />
+                    <p className={styles.emptyText}>Type a medicine name above to search local inventories.</p>
+                </div>
             )}
         </div>
     );

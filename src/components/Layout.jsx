@@ -1,50 +1,76 @@
 import React from 'react';
-import { Home, Globe, Siren } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Home, Palette, Building2, CloudSun, GraduationCap, HeartPulse, Wallet, Search, Bell } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './Layout.module.css';
 
 const Layout = ({ children }) => {
     const navigate = useNavigate();
     const location = useLocation();
-    const isDashboard = location.pathname === '/dashboard';
 
-    // Determine header color based on route
-    const getHeaderColor = () => {
-        if (location.pathname.startsWith('/culture')) return 'var(--orange-header)'; // Orange
-        if (location.pathname.startsWith('/government')) return 'var(--yellow-header)'; // Yellow
-        if (location.pathname.startsWith('/weather')) return 'var(--blue-header)'; // Blue
-        if (location.pathname.startsWith('/academic')) return 'var(--purple-header)'; // Purple
-        if (location.pathname.startsWith('/health')) return 'var(--red-header)'; // Red
-        if (location.pathname.startsWith('/economy')) return 'var(--green-header)'; // Green
-        return 'var(--pine-teal)'; // Default
-    };
+    const menuItems = [
+        { id: '/dashboard', label: 'Dashboard', icon: Home },
+        { id: '/culture', label: 'Culture', icon: Palette },
+        { id: '/government', label: 'Government', icon: Building2 },
+        { id: '/weather', label: 'Weather', icon: CloudSun },
+        { id: '/academic', label: 'Academic', icon: GraduationCap },
+        { id: '/health', label: 'Health', icon: HeartPulse },
+        { id: '/economy', label: 'Economy', icon: Wallet },
+    ];
+
+    const isActive = (path) => location.pathname === path || (path !== '/dashboard' && location.pathname.startsWith(path));
 
     return (
-        <div className={styles.container}>
-            <header className={styles.header} style={{ backgroundColor: getHeaderColor() }}>
-                <div className={styles.left}>
-                    {!isDashboard && (
-                        <button onClick={() => navigate('/dashboard')} className={styles.iconBtn}>
-                            <Home size={28} />
-                        </button>
-                    )}
-                    <h1 className={styles.title}>Rustica</h1>
+        <div className={styles.layoutContainer}>
+            {/* Left Sidebar */}
+            <div className={styles.sidebar}>
+                <div className={styles.logoContainer}>
+                    <div className={styles.logoIcon}>R</div>
+                    <h1 className={styles.logoText}>Rustica<span className={styles.logoDot}>.</span></h1>
                 </div>
 
-                <div className={styles.right}>
-                    <button className={styles.iconBtn} title="Translate">
-                        <Globe size={28} />
-                    </button>
-                    <div className={styles.sosContainer}>
-                        <Siren size={32} className={styles.sosIcon} />
-                        <span className={styles.sosText}>SOS</span>
+                <div className={styles.menuSection}>
+                    <p className={styles.menuLabel}>Main Menu</p>
+                    {menuItems.map((item) => (
+                        <button
+                            key={item.id}
+                            onClick={() => navigate(item.id)}
+                            className={`${styles.menuButton} ${isActive(item.id) ? styles.menuButtonActive : ''}`}
+                        >
+                            <item.icon size={22} />
+                            {item.label}
+                        </button>
+                    ))}
+                </div>
+            </div>
+
+            {/* Main Content Area */}
+            <div className={styles.mainContent}>
+                {/* Search Header */}
+                <div className={styles.topBar}>
+                    <div className={styles.searchBar}>
+                        <Search size={20} />
+                        <input
+                            type="text"
+                            placeholder="Search for schemes, jobs..."
+                            className={styles.searchInput}
+                        />
+                    </div>
+                    <div className={styles.userSection}>
+                        <div className={styles.iconButton}>
+                            <Bell size={20} />
+                        </div>
+                        <div className={styles.userProfile}>
+                            <div className={styles.userAvatar}>V</div>
+                            <span className={styles.userName}>V. Lakshen</span>
+                        </div>
                     </div>
                 </div>
-            </header>
 
-            <main className={styles.main}>
-                {children}
-            </main>
+                {/* Page Content */}
+                <div className={styles.pageContent}>
+                    {children}
+                </div>
+            </div>
         </div>
     );
 };

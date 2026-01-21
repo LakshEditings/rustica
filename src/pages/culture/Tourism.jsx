@@ -1,37 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { MapPin, Plus, X } from 'lucide-react';
-import styles from '../../components/Layout.module.css'; // Reusing generic layout styles
-import Card from '../../components/Card';
+import styles from '../../styles/professional.module.css';
 
 const Tourism = () => {
     const [locationSelected, setLocationSelected] = useState(false);
     const [showAddModal, setShowAddModal] = useState(false);
 
-    // Mock Data
-    const [spots, setSpots] = useState([
-        { id: 1, name: 'Ancient Temple', location: 'Village East', img: 'https://via.placeholder.com/300x200?text=Temple' },
-        { id: 2, name: 'River Point', location: 'North Bend', img: 'https://via.placeholder.com/300x200?text=River' },
+    const [spots] = useState([
+        { id: 1, name: 'Ancient Temple', location: 'Village East', img: 'https://via.placeholder.com/300x200/74c69d/fff?text=Temple' },
+        { id: 2, name: 'River Point', location: 'North Bend', img: 'https://via.placeholder.com/300x200/52b788/fff?text=River' },
     ]);
 
-    // Location Prompt
     if (!locationSelected) {
         return (
-            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 backdrop-blur-sm">
-                <div className="bg-white p-8 rounded-2xl max-w-md w-full text-center animate-fade-in shadow-2xl">
-                    <MapPin size={48} className="mx-auto text-orange-500 mb-4" />
-                    <h2 className="text-2xl font-bold mb-4 text-gray-800">Select Location</h2>
-                    <p className="text-gray-500 mb-6">To find tourist spots near you, we need your location.</p>
-                    <div className="space-y-3">
-                        <button
-                            onClick={() => setLocationSelected(true)}
-                            className="w-full bg-orange-500 text-white py-3 rounded-xl font-bold hover:bg-orange-600 transition"
-                        >
+            <div className={styles.modal}>
+                <div className={styles.modalContent}>
+                    <MapPin size={48} style={{ margin: '0 auto 16px', color: 'var(--sea-green)' }} />
+                    <h2 style={{ fontSize: '24px', fontWeight: 700, marginBottom: '16px', color: '#1f2937' }}>Select Location</h2>
+                    <p style={{ color: '#6b7280', marginBottom: '24px' }}>To find tourist spots near you, we need your location.</p>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                        <button onClick={() => setLocationSelected(true)} className={`${styles.button} ${styles.buttonPrimary} ${styles.buttonFull}`}>
                             Use Current Location
                         </button>
-                        <button
-                            onClick={() => setLocationSelected(true)}
-                            className="w-full bg-orange-100 text-orange-700 py-3 rounded-xl font-bold hover:bg-orange-200 transition"
-                        >
+                        <button onClick={() => setLocationSelected(true)} className={`${styles.button} ${styles.buttonSecondary} ${styles.buttonFull}`}>
                             Choose Manually
                         </button>
                     </div>
@@ -41,64 +32,43 @@ const Tourism = () => {
     }
 
     return (
-        <div className="max-w-7xl mx-auto p-6 animate-fade-in">
-            <h2 className="text-3xl font-bold text-orange-600 mb-6 border-b-2 border-orange-100 pb-2">Tourist Hotspots</h2>
+        <div className={styles.pageContainer}>
+            <h2 className={styles.pageTitle} style={{ borderBottom: '2px solid var(--celadon)', paddingBottom: '8px', marginBottom: '32px' }}>Tourist Hotspots</h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className={styles.gridCardsThree}>
                 {spots.map(spot => (
-                    <Card key={spot.id} className="p-0 overflow-hidden h-full group">
-                        <div className="h-48 overflow-hidden relative">
-                            <img src={spot.img} alt={spot.name} className="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-in-out" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                                <span className="text-white font-medium">View Details</span>
-                            </div>
+                    <div key={spot.id} className={styles.card} style={{ padding: 0, overflow: 'hidden', cursor: 'pointer', transition: 'transform 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-4px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+                        <div style={{ height: '192px', overflow: 'hidden', position: 'relative' }}>
+                            <img src={spot.img} alt={spot.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
-                        <div className="p-5">
-                            <h3 className="text-xl font-bold text-[var(--pine-teal)]">{spot.name}</h3>
-                            <div className="flex items-center gap-2 text-gray-500 mt-2">
-                                <MapPin size={16} className="text-orange-500" />
-                                <span className="text-sm font-medium">{spot.location}</span>
-                            </div>
+                        <div style={{ padding: '16px' }}>
+                            <h3 style={{ fontWeight: 700, fontSize: '18px', color: '#1f2937', marginBottom: '8px' }}>{spot.name}</h3>
+                            <p style={{ color: '#6b7280', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                <MapPin size={14} /> {spot.location}
+                            </p>
                         </div>
-                    </Card>
+                    </div>
                 ))}
             </div>
 
-            {/* Floating Action Button */}
-            <button
-                onClick={() => setShowAddModal(true)}
-                className="fixed bottom-8 right-8 bg-orange-600 text-white p-4 rounded-full shadow-lg hover:bg-orange-700 transition transform hover:scale-110 z-40"
-            >
+            <button onClick={() => setShowAddModal(true)} className={styles.fab}>
                 <Plus size={32} />
             </button>
 
-            {/* Add Hotspot Modal */}
             {showAddModal && (
-                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-                    <div className="bg-white/95 backdrop-blur-xl border border-white/50 rounded-3xl w-full max-w-lg p-8 relative animate-slide-up shadow-2xl">
-                        <button onClick={() => setShowAddModal(false)} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <div className={styles.modal}>
+                    <div className={styles.modalContent}>
+                        <button onClick={() => setShowAddModal(false)} className={styles.modalClose}>
                             <X size={24} />
                         </button>
-                        <h3 className="text-2xl font-bold mb-6 text-orange-600">Add New Hotspot</h3>
-                        <form className="space-y-4" onSubmit={(e) => {
-                            e.preventDefault();
-                            setSpots([...spots, { id: Date.now(), name: 'New Spot', location: 'Custom Loc', img: 'https://via.placeholder.com/300?text=New' }]);
-                            setShowAddModal(false);
-                        }}>
-                            <div>
-                                <label className="block text-sm font-semibold mb-1 text-gray-700">Place Name</label>
-                                <input type="text" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-orange-500 outline-none" placeholder="e.g. Hilltop View" required />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-semibold mb-1 text-gray-700">Location</label>
-                                <input type="text" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-orange-500 outline-none" placeholder="Village Name" required />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-semibold mb-1 text-gray-700">Image URL</label>
-                                <input type="text" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-orange-500 outline-none" placeholder="https://..." />
-                            </div>
-                            <button type="submit" className="w-full bg-orange-600 text-white font-bold py-3 rounded-xl hover:bg-orange-700 transition">
-                                Add Hotspot
+                        <h3 className={styles.modalTitle}>Add Tourist Spot</h3>
+
+                        <form className={styles.form} onSubmit={(e) => { e.preventDefault(); setShowAddModal(false); }}>
+                            <input type="text" placeholder="Spot Name" className={styles.input} required />
+                            <input type="text" placeholder="Location" className={styles.input} required />
+                            <textarea placeholder="Description" className={styles.textarea} required />
+                            <button type="submit" className={`${styles.button} ${styles.buttonPrimary} ${styles.buttonFull}`}>
+                                Add Spot
                             </button>
                         </form>
                     </div>

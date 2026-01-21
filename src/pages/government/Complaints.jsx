@@ -1,60 +1,56 @@
 import React, { useState } from 'react';
 import { Plus, X, MessageSquare, MapPin } from 'lucide-react';
+import styles from '../../styles/professional.module.css';
 
 const Complaints = () => {
     const [showModal, setShowModal] = useState(false);
 
     return (
-        <div className="container mx-auto p-4 animate-fade-in relative min-h-screen">
-            <h2 className="text-3xl font-bold text-yellow-600 mb-6">Community Complaints</h2>
+        <div className={styles.pageContainer}>
+            <h2 className={styles.pageTitle}>Community Complaints</h2>
 
-            <div className="space-y-4 mb-20">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '80px' }}>
                 {[1, 2].map(i => (
-                    <div key={i} className="bg-white p-4 rounded-xl shadow border-l-4 border-yellow-400">
-                        <div className="flex justify-between items-start mb-2">
-                            <h3 className="font-bold text-gray-800">Broken Street Light</h3>
-                            <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Pending</span>
+                    <div key={i} className={styles.card} style={{ borderLeft: '4px solid var(--sea-green)' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '12px' }}>
+                            <h3 style={{ fontWeight: 700, color: '#1f2937' }}>Broken Street Light</h3>
+                            <span style={{ fontSize: '12px', backgroundColor: 'rgba(116, 198, 157, 0.1)', color: 'var(--dark-emerald)', padding: '4px 12px', borderRadius: '9999px', fontWeight: 700 }}>Pending</span>
                         </div>
-                        <p className="text-gray-600 text-sm mb-3">Street light near the temple has been off for 3 days.</p>
-                        <div className="flex items-center gap-4 text-xs text-gray-400">
-                            <span className="flex items-center gap-1"><MapPin size={12} /> Main Road, Village</span>
+                        <p style={{ color: '#6b7280', fontSize: '14px', marginBottom: '12px' }}>Street light near the temple has been off for 3 days.</p>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '13px', color: '#9ca3af' }}>
+                            <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><MapPin size={14} /> Main Road, Village</span>
                             <span>To: PWD</span>
                         </div>
                     </div>
                 ))}
             </div>
 
-            <button
-                onClick={() => setShowModal(true)}
-                className="fixed bottom-8 right-8 bg-yellow-500 text-white p-4 rounded-full shadow-lg hover:bg-yellow-600 transition z-40"
-            >
+            <button onClick={() => setShowModal(true)} className={styles.fab}>
                 <Plus size={32} />
             </button>
 
-            {/* Add Complaint Modal */}
             {showModal && (
-                <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
-                    <div className="bg-white rounded-2xl w-full max-w-lg p-6 relative animate-slide-up">
-                        <button onClick={() => setShowModal(false)} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <div className={styles.modal}>
+                    <div className={styles.modalContent}>
+                        <button onClick={() => setShowModal(false)} className={styles.modalClose}>
                             <X size={24} />
                         </button>
-                        <h3 className="text-2xl font-bold mb-6 text-yellow-600 flex items-center gap-2"><MessageSquare /> File Complaint</h3>
+                        <h3 className={styles.modalTitle} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <MessageSquare size={28} /> File Complaint
+                        </h3>
 
-                        <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); setShowModal(false); }}>
-                            <input type="text" placeholder="Location of Issue" className="w-full p-3 border rounded-lg focus:outline-yellow-500" required />
-
-                            <textarea placeholder="Describe the problem..." className="w-full p-3 border rounded-lg h-32 focus:outline-yellow-500" required></textarea>
-
+                        <form className={styles.form} onSubmit={(e) => { e.preventDefault(); setShowModal(false); }}>
+                            <input type="text" placeholder="Location of Issue" className={styles.input} required />
+                            <textarea placeholder="Describe the problem..." className={styles.textarea} required />
                             <div>
-                                <label className="block text-sm font-semibold mb-2 text-gray-700">Forward To</label>
-                                <select className="w-full p-3 border rounded-lg bg-white focus:outline-yellow-500">
+                                <label className={styles.label}>Forward To</label>
+                                <select className={styles.select}>
                                     <option>PWD (Public Works)</option>
                                     <option>Police</option>
                                     <option>Village Panchayat</option>
                                 </select>
                             </div>
-
-                            <button type="submit" className="w-full bg-yellow-500 text-white font-bold py-3 rounded-xl hover:bg-yellow-600">
+                            <button type="submit" className={`${styles.button} ${styles.buttonPrimary} ${styles.buttonFull}`}>
                                 Submit Complaint
                             </button>
                         </form>
