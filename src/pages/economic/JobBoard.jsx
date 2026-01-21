@@ -9,6 +9,12 @@ const JobBoard = () => {
         { id: 1, name: 'S. Kumar', role: 'Plumber', rating: 4.8, location: 'Manalmedu', phone: '9876543210' },
         { id: 2, name: 'R. Velu', role: 'Electrician', rating: 4.5, location: 'Village North', phone: '9123456780' },
         { id: 3, name: 'M. Devi', role: 'Tailor', rating: 4.9, location: 'East Street', phone: '9988776655' },
+        { id: 4, name: 'K. Ravi', role: 'Carpenter', rating: 4.7, location: 'South Village', phone: '9845123456' },
+        { id: 5, name: 'P. Lakshmi', role: 'House Maid', rating: 4.6, location: 'West End', phone: '9734567890' },
+        { id: 6, name: 'N. Murthy', role: 'Mason', rating: 4.8, location: 'Temple Street', phone: '9667788990' },
+        { id: 7, name: 'A. Selvi', role: 'Cook', rating: 4.9, location: 'Market Area', phone: '9123445566' },
+        { id: 8, name: 'T. Raj', role: 'Mechanic', rating: 4.4, location: 'Main Road', phone: '9898787878' },
+        { id: 9, name: 'B. Meena', role: 'Beautician', rating: 4.7, location: 'Center Point', phone: '9556677889' },
     ];
 
     return (

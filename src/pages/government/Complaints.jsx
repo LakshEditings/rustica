@@ -10,16 +10,22 @@ const Complaints = () => {
             <h2 className={styles.pageTitle}>Community Complaints</h2>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '80px' }}>
-                {[1, 2].map(i => (
+                {[
+                    { title: 'Broken Street Light', desc: 'Street light near the temple has been off for 3 days.', dept: 'PWD' },
+                    { title: 'Road Pothole', desc: 'Large pothole on Main Road causing accidents.', dept: 'PWD' },
+                    { title: 'Water Supply Issue', desc: 'No water supply for past 2 days in South Block.', dept: 'Panchayat' },
+                    { title: 'Garbage Not Collected', desc: 'Garbage pile near market for over a week.', dept: 'Sanitation' },
+                    { title: 'Stray Animals', desc: 'Stray dogs causing nuisance in residential area.', dept: 'Health Dept' },
+                ].map((complaint, i) => (
                     <div key={i} className={styles.card} style={{ borderLeft: '4px solid var(--sea-green)' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '12px' }}>
-                            <h3 style={{ fontWeight: 700, color: '#1f2937' }}>Broken Street Light</h3>
+                            <h3 style={{ fontWeight: 700, color: '#1f2937' }}>{complaint.title}</h3>
                             <span style={{ fontSize: '12px', backgroundColor: 'rgba(116, 198, 157, 0.1)', color: 'var(--dark-emerald)', padding: '4px 12px', borderRadius: '9999px', fontWeight: 700 }}>Pending</span>
                         </div>
-                        <p style={{ color: '#6b7280', fontSize: '14px', marginBottom: '12px' }}>Street light near the temple has been off for 3 days.</p>
+                        <p style={{ color: '#6b7280', fontSize: '14px', marginBottom: '12px' }}>{complaint.desc}</p>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '13px', color: '#9ca3af' }}>
                             <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><MapPin size={14} /> Main Road, Village</span>
-                            <span>To: PWD</span>
+                            <span>To: {complaint.dept}</span>
                         </div>
                     </div>
                 ))}

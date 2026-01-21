@@ -6,6 +6,9 @@ const HealthSchemes = () => {
     const camps = [
         { title: 'Free Eye Camp', date: 'Jan 28, 2024', location: 'Primary Health Center', desc: 'Free eye checkup and glasses distribution' },
         { title: 'Vaccination Drive', date: 'Feb 05, 2024', location: 'Village Square', desc: 'Immunization for children under 5 years' },
+        { title: 'Diabetes Screening', date: 'Feb 12, 2024', location: 'Community Hall', desc: 'Free blood sugar testing and consultation' },
+        { title: 'Dental Checkup Camp', date: 'Feb 18, 2024', location: 'School Grounds', desc: 'Free dental examination for students' },
+        { title: 'General Health Camp', date: 'Feb 25, 2024', location: 'Town Hall', desc: 'Complete health checkup and medicine distribution' },
     ];
 
     return (

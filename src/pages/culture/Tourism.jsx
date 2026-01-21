@@ -9,6 +9,10 @@ const Tourism = () => {
     const [spots] = useState([
         { id: 1, name: 'Ancient Temple', location: 'Village East', img: 'https://via.placeholder.com/300x200/74c69d/fff?text=Temple' },
         { id: 2, name: 'River Point', location: 'North Bend', img: 'https://via.placeholder.com/300x200/52b788/fff?text=River' },
+        { id: 3, name: 'Hilltop View', location: 'West Hills', img: 'https://via.placeholder.com/300x200/40916c/fff?text=Hills' },
+        { id: 4, name: 'Heritage Museum', location: 'Town Center', img: 'https://via.placeholder.com/300x200/2d6a4f/fff?text=Museum' },
+        { id: 5, name: 'Waterfall Trek', location: 'Forest Area', img: 'https://via.placeholder.com/300x200/1b4332/fff?text=Waterfall' },
+        { id: 6, name: 'Village Garden', location: 'South Park', img: 'https://via.placeholder.com/300x200/66bb6a/fff?text=Garden' },
     ]);
 
     if (!locationSelected) {

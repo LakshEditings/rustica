@@ -36,8 +36,8 @@ const Layout = ({ children }) => {
                             onClick={() => navigate(item.id)}
                             className={`${styles.menuButton} ${isActive(item.id) ? styles.menuButtonActive : ''}`}
                         >
-                            <item.icon size={22} />
-                            {item.label}
+                            <item.icon size={22} style={{ flexShrink: 0 }} />
+                            <span className={styles.menuButtonText}>{item.label}</span>
                         </button>
                     ))}
                 </div>

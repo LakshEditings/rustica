@@ -1,0 +1,67 @@
+/* ACADEMIC HUB - PURPLE THEME */
+
+.buttonPrimary {
+    background-color: #7E57C2;
+    color: white;
+    box-shadow: 0 4px 12px rgba(126, 87, 194, 0.3);
+}
+
+.buttonPrimary:hover {
+    background-color: #6F4DB3;
+    box-shadow: 0 6px 16px rgba(126, 87, 194, 0.4);
+}
+
+.hero {
+    background: linear-gradient(135deg, #7E57C2 0%, #5C6BC0 100%);
+    padding: 48px;
+    border-radius: 24px;
+    margin-bottom: 40px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(126, 87, 194, 0.3);
+    color: white;
+}
+
+.heroTitle {
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+.pageIcon {
+    margin: 0 auto 16px;
+    color: #7E57C2;
+}
+
+.fab {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    background-color: #7E57C2;
+    color: white;
+    padding: 16px;
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(126, 87, 194, 0.4);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 40;
+}
+
+.fab:hover {
+    background-color: #6F4DB3;
+    box-shadow: 0 12px 32px rgba(126, 87, 194, 0.5);
+    transform: scale(1.1);
+}
+
+.accentBorder {
+    border-left: 4px solid #7E57C2;
+}
+
+.accentColor {
+    color: #7E57C2;
+}
+
+.accentBg {
+    background-color: rgba(126, 87, 194, 0.1);
+}

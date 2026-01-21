@@ -24,15 +24,21 @@ const Medicine = () => {
             {query && (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <h3 style={{ fontWeight: 700, color: '#6b7280' }}>Showing shops for "{query}"</h3>
-                    {[1, 2].map(i => (
+                    {[
+                        { name: 'City Pharmacy', location: 'Main Bazaar (0.5 km)', stock: true },
+                        { name: 'Medico Plus', location: 'Temple Street (1.2 km)', stock: true },
+                        { name: 'Health Care Store', location: 'Market Road (0.8 km)', stock: false },
+                        { name: 'Apollo Pharmacy', location: 'Bus Stand (1.5 km)', stock: true },
+                        { name: 'Wellness Medicals', location: 'East Block (2 km)', stock: true },
+                    ].map((shop, i) => (
                         <div key={i} className={styles.card} style={{ borderLeft: '4px solid var(--sea-green)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <div>
-                                <h4 style={{ fontWeight: 700, fontSize: '18px', marginBottom: '6px' }}>City Pharmacy</h4>
+                                <h4 style={{ fontWeight: 700, fontSize: '18px', marginBottom: '6px' }}>{shop.name}</h4>
                                 <p style={{ color: '#6b7280', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '8px' }}>
-                                    <MapPin size={14} /> Main Bazaar (0.5 km)
+                                    <MapPin size={14} /> {shop.location}
                                 </p>
-                                <div style={{ color: 'var(--sea-green)', fontSize: '14px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                    <Pill size={14} /> In Stock
+                                <div style={{ color: shop.stock ? 'var(--sea-green)' : '#ef4444', fontSize: '14px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                    <Pill size={14} /> {shop.stock ? 'In Stock' : 'Out of Stock'}
                                 </div>
                             </div>
                             <a href="#" style={{ backgroundColor: 'rgba(27, 67, 50, 0.1)', borderRadius: '50%', width: '48px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--pine-teal)', transition: 'background-color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(27, 67, 50, 0.2)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(27, 67, 50, 0.1)'}>

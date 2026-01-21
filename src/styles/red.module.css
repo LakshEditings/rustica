@@ -1,0 +1,67 @@
+/* HEALTH HUB - RED THEME */
+
+.buttonPrimary {
+    background-color: #EF5350;
+    color: white;
+    box-shadow: 0 4px 12px rgba(239, 83, 80, 0.3);
+}
+
+.buttonPrimary:hover {
+    background-color: #DB4846;
+    box-shadow: 0 6px 16px rgba(239, 83, 80, 0.4);
+}
+
+.hero {
+    background: linear-gradient(135deg, #EF5350 0%, #EC407A 100%);
+    padding: 48px;
+    border-radius: 24px;
+    margin-bottom: 40px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(239, 83, 80, 0.3);
+    color: white;
+}
+
+.heroTitle {
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+.pageIcon {
+    margin: 0 auto 16px;
+    color: #EF5350;
+}
+
+.fab {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    background-color: #EF5350;
+    color: white;
+    padding: 16px;
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(239, 83, 80, 0.4);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 40;
+}
+
+.fab:hover {
+    background-color: #DB4846;
+    box-shadow: 0 12px 32px rgba(239, 83, 80, 0.5);
+    transform: scale(1.1);
+}
+
+.accentBorder {
+    border-left: 4px solid #EF5350;
+}
+
+.accentColor {
+    color: #EF5350;
+}
+
+.accentBg {
+    background-color: rgba(239, 83, 80, 0.1);
+}

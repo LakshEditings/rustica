@@ -1,0 +1,72 @@
+/* CULTURE HUB - ORANGE THEME */
+
+/* Buttons */
+.buttonPrimary {
+    background-color: #FF8800;
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 136, 0, 0.3);
+}
+
+.buttonPrimary:hover {
+    background-color: #E67700;
+    box-shadow: 0 6px 16px rgba(255, 136, 0, 0.4);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #FF8800 0%, #FF6B6B 100%);
+    padding: 48px;
+    border-radius: 24px;
+    margin-bottom: 40px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(255, 136, 0, 0.3);
+    color: white;
+}
+
+.heroTitle {
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+/* Page Icon */
+.pageIcon {
+    margin: 0 auto 16px;
+    color: #FF8800;
+}
+
+/* FAB */
+.fab {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    background-color: #FF8800;
+    color: white;
+    padding: 16px;
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(255, 136, 0, 0.4);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 40;
+}
+
+.fab:hover {
+    background-color: #E67700;
+    box-shadow: 0 12px 32px rgba(255, 136, 0, 0.5);
+    transform: scale(1.1);
+}
+
+/* Borders and Accents */
+.accentBorder {
+    border-left: 4px solid #FF8800;
+}
+
+.accentColor {
+    color: #FF8800;
+}
+
+.accentBg {
+    background-color: rgba(255, 136, 0, 0.1);
+}

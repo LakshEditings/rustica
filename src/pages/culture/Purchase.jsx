@@ -10,6 +10,11 @@ const Purchase = () => {
         { id: 1, name: 'Handmade Basket', price: '₹450', img: 'https://via.placeholder.com/200/74c69d/fff?text=Basket' },
         { id: 2, name: 'Clay Pot', price: '₹120', img: 'https://via.placeholder.com/200/52b788/fff?text=Pot' },
         { id: 3, name: 'Silk Scarf', price: '₹850', img: 'https://via.placeholder.com/200/40916c/fff?text=Scarf' },
+        { id: 4, name: 'Wooden Toy', price: '₹300', img: 'https://via.placeholder.com/200/2d6a4f/fff?text=Toy' },
+        { id: 5, name: 'Brass Lamp', price: '₹650', img: 'https://via.placeholder.com/200/66bb6a/fff?text=Lamp' },
+        { id: 6, name: 'Bamboo Mat', price: '₹280', img: 'https://via.placeholder.com/200/43a047/fff?text=Mat' },
+        { id: 7, name: 'Terracotta Vase', price: '₹420', img: 'https://via.placeholder.com/200/5dab60/fff?text=Vase' },
+        { id: 8, name: 'Embroidered Bag', price: '₹550', img: 'https://via.placeholder.com/200/74c69d/fff?text=Bag' },
     ]);
 
     if (!locationSelected) {
