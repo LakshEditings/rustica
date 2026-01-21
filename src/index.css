@@ -12,30 +12,30 @@
   --pine-teal: #1b4332;
   --evergreen: #081c15;
 
-  /* Hub Colors - Using Green Palette */
-  --orange-header: var(--mint-leaf-2);
-  --orange-bg: var(--frosted-mint);
-  --orange-border: var(--celadon);
+  /* Hub Colors - Vibrant & Distinct */
+  --orange-header: #FF8800;
+  --orange-bg: #FFF3E0;
+  --orange-border: #FFCC80;
 
-  --yellow-header: var(--sea-green);
-  --yellow-bg: var(--celadon);
-  --yellow-border: var(--mint-leaf);
+  --yellow-header: #FFB300;
+  --yellow-bg: #FFF8E1;
+  --yellow-border: #FFE082;
 
-  --blue-header: var(--dark-emerald);
-  --blue-bg: var(--celadon-2);
-  --blue-border: var(--celadon);
+  --blue-header: #42A5F5;
+  --blue-bg: #E3F2FD;
+  --blue-border: #90CAF9;
 
-  --purple-header: var(--pine-teal);
-  --purple-bg: var(--frosted-mint);
-  --purple-border: var(--celadon);
+  --purple-header: #7E57C2;
+  --purple-bg: #EDE7F6;
+  --purple-border: #D1C4E9;
 
-  --red-header: var(--evergreen);
-  --red-bg: var(--frosted-mint);
-  --red-border: var(--celadon-2);
+  --red-header: #EF5350;
+  --red-bg: #FFEBEE;
+  --red-border: #EF9A9A;
 
-  --green-header: var(--sea-green);
-  --green-bg: var(--celadon);
-  --green-border: var(--mint-leaf);
+  --green-header: #66BB6A;
+  --green-bg: #E8F5E9;
+  --green-border: #A5D6A7;
 
   /* UI Tokens */
   --glass-bg: rgba(255, 255, 255, 0.7);

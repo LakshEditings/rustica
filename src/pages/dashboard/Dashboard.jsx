@@ -12,42 +12,42 @@ const Dashboard = () => {
             desc: 'Tourism, Festivals & Heritage',
             icon: Palette,
             path: '/culture',
-            gradient: 'linear-gradient(135deg, #74c69d 0%, #52b788 100%)'
+            gradient: 'linear-gradient(135deg, #FF8800 0%, #FF6B6B 100%)'
         },
         {
             title: 'Government',
             desc: 'Schemes & Safety',
             icon: Building2,
             path: '/government',
-            gradient: 'linear-gradient(135deg, #52b788 0%, #40916c 100%)'
+            gradient: 'linear-gradient(135deg, #FFB300 0%, #FF8800 100%)'
         },
         {
             title: 'Weather',
             desc: 'Forecast & Reports',
             icon: CloudSun,
             path: '/weather',
-            gradient: 'linear-gradient(135deg, #40916c 0%, #2d6a4f 100%)'
+            gradient: 'linear-gradient(135deg, #42A5F5 0%, #26C6DA 100%)'
         },
         {
             title: 'Academic',
             desc: 'Education & Skills',
             icon: GraduationCap,
             path: '/academic',
-            gradient: 'linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%)'
+            gradient: 'linear-gradient(135deg, #7E57C2 0%, #5C6BC0 100%)'
         },
         {
             title: 'Health',
             desc: 'Medical & Hospitals',
             icon: HeartPulse,
             path: '/health',
-            gradient: 'linear-gradient(135deg, #1b4332 0%, #081c15 100%)'
+            gradient: 'linear-gradient(135deg, #EF5350 0%, #EC407A 100%)'
         },
         {
             title: 'Economy',
             desc: 'Jobs, Prices & Wages',
             icon: Wallet,
             path: '/economy',
-            gradient: 'linear-gradient(135deg, #52b788 0%, #40916c 100%)'
+            gradient: 'linear-gradient(135deg, #66BB6A 0%, #43A047 100%)'
         },
     ];
 
@@ -79,7 +79,7 @@ const Dashboard = () => {
                             </div>
 
                             <div className={styles.arrowIcon}>
-                                <ArrowRight size={20} color="#333" />
+                                <ArrowRight size={20} color="white" />
                             </div>
                         </div>
                     </div>
