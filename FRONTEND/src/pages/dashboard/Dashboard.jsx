@@ -8,7 +8,7 @@ const Dashboard = () => {
 
     const hubs = [
         {
-            title: 'Cultural Hub',
+            title: 'Culture Hub',
             desc: 'Tourism, Festivals & Heritage',
             icon: Palette,
             path: '/culture',
